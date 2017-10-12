@@ -19,6 +19,10 @@ directory '/opt/tomcat' do
   recursive true
 end
 
+remote_file 'apache-tomcat-8.0.47.tar.gz' do
+	source 'http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-8/v8.0.47/bin/'
+end
+
 execute 'extract_tomcat' do
   command 'tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1'
   cwd '/tmp'
