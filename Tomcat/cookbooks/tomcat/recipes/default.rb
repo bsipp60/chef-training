@@ -1,7 +1,4 @@
-mkdir cookbooks
-chef generate cookbook cookbooks/tomcat
-tree cookbooks/tomcat
-echo "
+
 
 package 'java-1.7.0-openjdk-devel'
 
@@ -52,10 +49,4 @@ service 'tomcat' do
   action [:start, :enable]
 end
 
-" > cookbooks/tomcat/recipes/default.rb
 
-chef generate template cookbooks/tomcat tomcat.service
-
-cp ~/tomcat.service ~/cookbooks/tomcat/templates/default/tomcat.service.erb
-
-sudo chef-client --local-mode --runlist "recipe[tomcat::default]"
