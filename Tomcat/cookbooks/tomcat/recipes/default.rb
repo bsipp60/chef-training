@@ -15,13 +15,13 @@ directory '/opt/tomcat' do
   recursive true
 end
 
-remote_file '/home/skytap/Downloads/apache-tomcat-8.0.47.tar.gz' do
+remote_file '/tmp/apache-tomcat-8.0.47.tar.gz' do
 	source 'http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-8/v8.0.47/bin/apache-tomcat-8.0.47.tar.gz'
 end
 
 execute 'extract_tomcat' do
   command 'tar xzvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1'
-  cwd '/home/skytap/Downloads'
+  cwd '/tmp'
 end
 
 execute 'chgrp -R chef /opt/tomcat/conf'
