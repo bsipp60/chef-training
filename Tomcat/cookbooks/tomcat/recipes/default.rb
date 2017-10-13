@@ -28,7 +28,7 @@ execute 'chgrp -R chef /opt/tomcat/conf'
 
 directory '/opt/tomcat/conf' do
   group 'chef'
-  mode '0474'
+  mode '0575'
 end
 
 execute 'chmod g+r conf/*' do
